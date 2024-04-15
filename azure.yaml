@@ -28,29 +28,59 @@ services:
       context: ..
 hooks:
   preprovision:
-    shell: sh
-    continueOnError: false
-    interactive: true
-    run: infra/hooks/preprovision.sh
+    posix:
+      shell: sh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/preprovision.sh
+    windows:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/preprovision.ps1
   postprovision:
-    shell: sh
-    continueOnError: false
-    interactive: true
-    run: infra/hooks/postprovision.sh
+    posix:
+      shell: sh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/postprovision.sh
+    windows:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/postprovision.ps1
   postdeploy:
-    shell: sh
-    continueOnError: false
-    interactive: true
-    run: infra/hooks/postdeploy.sh
+    posix:
+      shell: sh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/postdeploy.sh
+    windows:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/postdeploy.ps1
   preup:
-    shell: sh
-    continueOnError: false
-    interactive: true
-    run: infra/hooks/preup.sh
+    posix:
+      shell: sh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/preup.sh
+    windows:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/preup.ps1
   predown:
-    shell: sh
-    continueOnError: false
-    interactive: true
-    run: infra/hooks/predown.sh
+    posix:
+      shell: sh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/predown.sh
+    windows:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: infra/hooks/predown.ps1
 infra:
   provider: terraform

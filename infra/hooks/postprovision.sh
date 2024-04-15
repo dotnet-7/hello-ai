@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load the azd environment variables
+DIR=$(dirname "$(realpath "$0")")
+"$DIR/load_azd_env.sh"
+
 azd env get-values > .env
 
 # Retrieve the internalId of the Cognitive Services account

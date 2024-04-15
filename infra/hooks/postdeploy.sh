@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load the azd environment variables
+DIR=$(dirname "$(realpath "$0")")
+"$DIR/load_azd_env.sh"
+
 # Convert WORKSPACE to lowercase and trim any whitespace
 WORKSPACE=$(echo "${WORKSPACE}" | tr '[:upper:]' '[:lower:]' | xargs)
 

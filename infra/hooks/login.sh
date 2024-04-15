@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load the azd environment variables
+DIR=$(dirname "$(realpath "$0")")
+"$DIR/load_azd_env.sh"
+
 # Check if the script is running in a Codespace Browser and ask user to open in VS Code Desktop if it is
 # Initialize IS_BROWSER variable to false
 IS_BROWSER=false

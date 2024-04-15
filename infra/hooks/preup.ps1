@@ -1,10 +1,8 @@
-#!/bin/bash
-
 # Load the azd environment variables
-DIR=$(dirname "$(realpath "$0")")
-"$DIR/load_azd_env.sh"
+$DIR = Split-Path $MyInvocation.MyCommand.Path
+& "$DIR\load_azd_env.ps1"
 
-if [ -z "$GITHUB_WORKSPACE" ]; then
+if ([string]::IsNullOrEmpty($env:GITHUB_WORKSPACE)) {
     # The GITHUB_WORKSPACE is not set, meaning this is not running in a GitHub Action
-    "$DIR/login.sh"
-fi
+    & "$DIR\login.ps1"
+}
